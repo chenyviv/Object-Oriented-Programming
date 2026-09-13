@@ -1,9 +1,11 @@
 #include<iostream>
 #include<fstream>
 
+#include<string>
 #include<vector>
 #include<cstdlib>
 #include<ctime>
+#include<random>
 
 using namespace std;
 
@@ -11,13 +13,12 @@ using namespace std;
 void promptFile(vector<string> &); 
 void printVec(vector<string>);
 
-int ranGen();
+int ranGen(int size);
 void readFile(string filename, vector<string> & vec);
 void writeFile(string filename, vector<string> v0, vector<string> v1);
 
 int main()
 {
-    srand(time(nullptr));
     vector<string> roster;
     vector<string> qBank;
     readFile("2310_F26_Rosters.csv", roster);
@@ -33,22 +34,13 @@ int main()
 }
 
 //------------------------DECLARATIONS-------------------------------------------
-/**
- * @brief randomly returns a number from 0 to 5.
- * - It is hardcoded to be from 0 to 5.
- * - Uses srand(nullptr) in main()
- * TO DO:
- * Modify it so that randGen() reads in 
- * the size of the questions instead of 6 (e.g. questions.size())
- * 
- * TO DO:
- * Use <random> for modern C++ random generation instead 
- * 
- * @return int: index of question
- */
-int ranGen(){
-    int randomNumber = rand() % 6;  // 0 through 5
-    return randomNumber;
+int ranGen(int size){
+    //int randomNumber = rand() % size;  // 0 through size-1
+    // return randomNumber;
+    static random_device rd;
+    static mt19937 gen(rd());
+    uniform_int_distribution<int> dist(0, size - 1);
+    return dist(gen);
 }
 
 /**
@@ -110,7 +102,7 @@ void writeFile(string filename, vector<string> v0, vector<string> v1){
     // write under the structure:
     // Student_Name, Question_#
     for(int i = 0; i < v0.size(); i++){
-        outputFile << v0[i] << "," << v1[ranGen()] << endl;
+        outputFile << v0[i] << "," << v1[ranGen(v1.size())] << endl;
     }
     outputFile.close();
 
