@@ -15,7 +15,7 @@ void printVec(vector<string>);
 
 int ranGen(int size);
 bool readFile(string filename, vector<string> & vec);
-void writeFile(string filename, vector<string> v0, vector<string> v1);
+bool writeFile(string filename, const vector<string> & v0, const vector<string> & v1);
 
 int main()
 {
@@ -75,25 +75,18 @@ bool readFile(string filename, vector<string> & vec) {
  * @param filename: string
  * @param v0: vector<string> (for students names)
  * @param v1: vector<string> (for questions)
- * 
- * TO DO: 
- * ​​​Return a bool instead in order to indicate whether the operation
- * succeeded or not
- * 
- * TO DO:
- * ​​Use pass by const reference (const vector<string> & v0, const vector<string> & v1)
- * as opposed to pass by value (vector<string> v0, vector<string> v1). 
- * 
+ *  
  * What is the differennce between:
  * -  pass by reference (e.g. vector<string> & v0),
  * -  pass by value (e.g. vector<string> v0),
  * -  pass by const reference (e.g. const vector<string> & v0),
  */
-void writeFile(string filename, vector<string> v0, vector<string> v1){
+bool writeFile(string filename, const vector<string> & v0, const vector<string> & v1){
 
     ofstream outputFile(filename);
      if (!outputFile) {
         cout << "Error: Could not create data.csv" << endl;
+        return false;
     }
 
     // write under the structure:
@@ -102,6 +95,7 @@ void writeFile(string filename, vector<string> v0, vector<string> v1){
         outputFile << v0[i] << "," << v1[ranGen(v1.size())] << endl;
     }
     outputFile.close();
+    return true;
 
 }
 
