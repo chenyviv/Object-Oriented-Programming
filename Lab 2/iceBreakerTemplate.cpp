@@ -7,20 +7,32 @@
 
 using namespace std;
 
-/**
- * TO DO: 
- * Create function prototypes for all the functions.
- * Write their function declarations below main().
- * 
- * See promptFile(...) and printVec(...), which serve as examples.
- * 
- */
-
-
 //------------------------PROTOTYPE-------------------------------------------
 void promptFile(vector<string> &); 
 void printVec(vector<string>);
 
+int ranGen();
+void readFile(string filename, vector<string> & vec);
+void writeFile(string filename, vector<string> v0, vector<string> v1);
+
+int main()
+{
+    srand(time(nullptr));
+    vector<string> roster;
+    vector<string> qBank;
+    readFile("2310_F26_Rosters.csv", roster);
+    readFile("Questions.csv", qBank);
+    // printVec(roster);
+    // printVec(qBank);
+
+    // cout << "Size of roster: " << roster.size() << endl; 
+    // cout << "Size of qBank: " << qBank.size() << endl;
+
+    writeFile("Student_question_bank.csv",roster, qBank);
+
+}
+
+//------------------------DECLARATIONS-------------------------------------------
 /**
  * @brief randomly returns a number from 0 to 5.
  * - It is hardcoded to be from 0 to 5.
@@ -104,25 +116,6 @@ void writeFile(string filename, vector<string> v0, vector<string> v1){
 
 }
 
-
-int main()
-{
-    srand(time(nullptr));
-    vector<string> roster;
-    vector<string> qBank;
-    readFile("2310_F26_Rosters.csv", roster);
-    readFile("Questions.csv", qBank);
-    // printVec(roster);
-    // printVec(qBank);
-
-    // cout << "Size of roster: " << roster.size() << endl; 
-    // cout << "Size of qBank: " << qBank.size() << endl;
-
-    writeFile("Student_question_bank.csv",roster, qBank);
-
-}
-
-//------------------------DECLARATIONS-------------------------------------------
 /**
  * @brief prompts the user to give a file to read
  * 
