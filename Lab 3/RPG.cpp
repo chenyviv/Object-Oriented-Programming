@@ -16,3 +16,20 @@ RPG::RPG(string name, int hits_taken, float luck, float exp, int level){
     this->exp = exp;
     this->level = level;
 }
+
+// accessors
+string RPG::getName() const{
+    return name;
+}
+int RPG::getHitsTaken() const{
+    return hits_taken;
+}
+float RPG::getLuck() const{
+    return luck;
+}
+float RPG::getExp() const{
+    return exp;
+}
+int RPG::getLevel() const{
+    return level;
+}
