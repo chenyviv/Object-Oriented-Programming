@@ -16,14 +16,12 @@ int main()
     p1.setHitsTaken(5);
     // p2.setHitsTaken(10);
 
-    cout << "\nP1 hits taken ";
-    cout << p1.getHitsTaken(); 
-    cout << "\nP2 hits taken ";
-    cout << p2.getHitsTaken(); 
+    cout << "\nP1 hits taken " << p1.getHitsTaken();
+    cout << "\nP2 hits taken " << p2.getHitsTaken() << endl;
 
     cout << "0 is dead, 1 is alive\n";
-    p1.isAlive();
-    p2.isAlive();
+    cout << "P1: " << p1.isAlive() << endl;
+    cout << "P2: " << p2.isAlive() << endl;
 
     return 0;
 }
