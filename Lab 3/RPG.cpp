@@ -33,3 +33,17 @@ float RPG::getExp() const{
 int RPG::getLevel() const{
     return level;
 }
+
+// mutators
+bool RPG::isAlive() const{
+    if(hits_taken < MAX_HITS_TAKEN){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+void RPG::setHitsTaken(int new_hits){
+    hits_taken = new_hits;
+}
