@@ -63,3 +63,18 @@ void Game::battleRound(){
         endRound(player2, player1, playerIndex1);
     }
 }
+
+void Game::gameLoop(){
+    while(live_players.size() > 1){
+        battleRound();
+    }
+}
+
+void Game::printFinalResults(){
+    for(int i = 0; i < players.size(); i++){
+      players[i]->printStats();
+    }
+}
+
+Game::~Game(){
+}
