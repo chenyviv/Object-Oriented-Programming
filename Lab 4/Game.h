@@ -11,7 +11,8 @@ class Game{
     public: 
         //constructors
         Game();
-
+        ~Game();
+        
         //
         void generatePlayers(int n);
         int selectPlayer();

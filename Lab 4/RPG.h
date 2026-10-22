@@ -11,7 +11,8 @@ class RPG {
         //constructors
         RPG();
         RPG(string name, int hits_taken, float luck, float exp, int level);
-
+        ~RPG();
+        
         //mutators
         bool isAlive() const;
         void setHitsTaken(int new_hits);
