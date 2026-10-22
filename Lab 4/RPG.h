@@ -15,6 +15,10 @@ class RPG {
         //mutators
         bool isAlive() const;
         void setHitsTaken(int new_hits);
+        void setName(string name);
+        void updateExpLevel();
+        void attack(RPG *opponent);
+        void printStats();
 
         //accessors
         string getName() const;
