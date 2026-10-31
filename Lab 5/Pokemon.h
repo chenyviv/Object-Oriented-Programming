@@ -14,7 +14,7 @@ class Pokemon{
     virtual void speak();
     virtual void printStats();
     
-    protected:
+    private:
         string name;
         int hp;
         int attack;
