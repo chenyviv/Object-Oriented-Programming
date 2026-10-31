@@ -11,7 +11,7 @@ class Pokemon{
     Pokemon();
     Pokemon(string name, int hp, int att, int def, vector<string> type);
     // mutators
-    void speak();
+    virtual void speak();
     virtual void printStats();
     
     protected:
